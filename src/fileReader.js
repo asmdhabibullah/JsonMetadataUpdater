@@ -1,16 +1,17 @@
+const fs = require("fs");
+const path = require("path");
 const { dataEditor } = require("./dataEditor");
 
 
-const fileReader = (filePath) => {
+const fileReader = () => {
 
     //joining path of directory 
-    const directoryPath = path.join(__dirname, filePath);
+    const baseStaticPath = path.join(__dirname, "../static");
 
-    // console.log("directoryPath", directoryPath);
+    // console.log("baseStaticPath", baseStaticPath);
 
-
-    //passsing directoryPath and callback function
-    return fs.readdir(directoryPath, (err, files) => {
+    //passsing baseStaticPath and callback function
+    fs.readdir(baseStaticPath, (err, files) => {
         //handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);
@@ -21,13 +22,13 @@ const fileReader = (filePath) => {
             // const newFilePath = `${directoryPath}/${file}`;
             // genNewFiles.push(newFilePath);
             dataEditor(file)
-
             // console.log("newFilePath", newFilePath);
         });
         // console.log("genNewFiles 01", genNewFiles);
         // return genNewFiles;
     });
     // console.log("genNewFiles 02", genNewFiles);
+
 };
 
 module.exports = {

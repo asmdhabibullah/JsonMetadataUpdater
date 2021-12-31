@@ -19,7 +19,7 @@ const dataEditor = (file) => {
 
     // console.log(typeof fileNameWithoutJson);
 
-    const filePath = path.join(__dirname, `../static/${data}`);
+    const filePath = path.join(__dirname, `../static/${file}`);
 
     // console.log("filePath", filePath);
 
@@ -34,17 +34,17 @@ const dataEditor = (file) => {
     // console.log("name, description, image, edition, attributes, compiler", name, description, image, edition, attributes, compiler);
 
 
-    const newImage = `ipfs:Qmcnavj7P7fbjPgZNDfsgoynUKbD59c3HjbJ9Q4kucR1rs/${getFileName}.png`
+    const newImagePath = `ipfs:Qmcnavj7P7fbjPgZNDfsgoynUKbD59c3HjbJ9Q4kucR1rs/${getFileName}.png`
 
     const newJsonData = {
-        name, description, image: newImage, edition: getFileName, attributes, compiler
+        name, description, image: newImagePath, edition: getFileName, attributes, compiler
     };
     // newJsonData.edition = fileNameWithoutJson;
     // json.edition = parseInt(fileNameWithoutJson, 6);
 
     // console.log("newJsonData", newJsonData);
 
-    const newGenFilePath = path.join(__dirname, `../newGenFile/${data}`);
+    const newGenFilePath = path.join(__dirname, `../newGenFile/${file}`);
 
     // console.log("newGenFilePath", newGenFilePath);
 

@@ -1,10 +1,10 @@
-const { dataEditor } = require("./dataEditor.js");
 const { fileReader } = require("./fileReader.js");
+const { genMetadata } = require("./genMetaData.js");
 
+fileReader();
 
-const files = fileReader("../static")
+setTimeout(() => {
 
+    genMetadata();
 
-console.log("files", files);
-
-// dataEditor(files)
+}, 5000);
